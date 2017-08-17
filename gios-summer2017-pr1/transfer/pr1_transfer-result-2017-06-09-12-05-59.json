@@ -1,0 +1,44 @@
+{
+    "tests": [
+        {
+            "output": {
+                "client_returncode": 0,
+                "server_console": "",
+                "passfail": "failed",
+                "server_returncode": null,
+                "client_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_qsoipblk/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 72, in test_client\n    self.assertTrue(filecmp.cmp(outputFileName, 'file.txt'),\n  File \"/usr/lib/python2.7/filecmp.py\", line 53, in cmp\n    outcome = _do_cmp(f1, f2)\n  File \"/usr/lib/python2.7/filecmp.py\", line 66, in _do_cmp\n    with open(f1, 'rb') as fp1, open(f2, 'rb') as fp2:\nIOError: [Errno 13] Permission denied: 'loquatious.txt'\n",
+            "description": "Tests that the client accurately saves the file sent from the server."
+        },
+        {
+            "output": {
+                "client_returncode": 0,
+                "passfail": "passed",
+                "client_console": "gcc -o transferclient -Wall -Werror --std=gnu99 -g3 -fsanitize=address -fno-omit-frame-pointer -Wno-format-security transferclient.c -lpthread -static-libasan\n"
+            },
+            "traceback": "",
+            "description": "Tests that the client compiles"
+        },
+        {
+            "output": {
+                "server_console": "gcc -o transferserver -Wall -Werror --std=gnu99 -g3 -fsanitize=address -fno-omit-frame-pointer -Wno-format-security transferserver.c -lpthread -static-libasan\n",
+                "passfail": "passed",
+                "server_returncode": 0
+            },
+            "traceback": "",
+            "description": "Tests that the server compiles"
+        },
+        {
+            "output": {
+                "client_returncode": 0,
+                "server_console": "",
+                "passfail": "passed",
+                "server_returncode": null,
+                "client_console": ""
+            },
+            "traceback": "",
+            "description": "Tests that the server accurately sends the file to the client."
+        }
+    ]
+}

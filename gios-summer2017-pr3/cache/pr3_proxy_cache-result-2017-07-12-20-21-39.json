@@ -1,0 +1,222 @@
+{
+    "tests": [
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"run.py\", line 219, in tearDown\n    os.kill(cached_pid,0)\nUnboundLocalError: local variable 'cached_pid' referenced before assignment\n",
+            "description": "Test Cache supporting large segments"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"run.py\", line 219, in tearDown\n    os.kill(cached_pid,0)\nUnboundLocalError: local variable 'cached_pid' referenced before assignment\n",
+            "description": "Multi-threaded Cache test with simultaneous multi-threaded downloads (mixed file sizes)"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"run.py\", line 219, in tearDown\n    os.kill(cached_pid,0)\nUnboundLocalError: local variable 'cached_pid' referenced before assignment\n",
+            "description": "Cache Test with single threaded downloads"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"run.py\", line 219, in tearDown\n    os.kill(cached_pid,0)\nUnboundLocalError: local variable 'cached_pid' referenced before assignment\n",
+            "description": "Cache Test with simultaneous multi-threaded downloads (mixed file sizes)"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"run.py\", line 219, in tearDown\n    os.kill(cached_pid,0)\nUnboundLocalError: local variable 'cached_pid' referenced before assignment\n",
+            "description": "Cache Test with simultaneous multi-threaded downloads (small file sizes)"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"run.py\", line 219, in tearDown\n    os.kill(cached_pid,0)\nUnboundLocalError: local variable 'cached_pid' referenced before assignment\n",
+            "description": "Concurrent Download of Same File Test"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"run.py\", line 219, in tearDown\n    os.kill(cached_pid,0)\nUnboundLocalError: local variable 'cached_pid' referenced before assignment\n",
+            "description": "Large File Transfer Test"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"run.py\", line 219, in tearDown\n    os.kill(cached_pid,0)\nUnboundLocalError: local variable 'cached_pid' referenced before assignment\n",
+            "description": "Test Cache for multi-threading efficacy (or is it faster with more threads?)"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"run.py\", line 219, in tearDown\n    os.kill(cached_pid,0)\nUnboundLocalError: local variable 'cached_pid' referenced before assignment\n",
+            "description": "Non-Existent File Transfer Test"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"run.py\", line 219, in tearDown\n    os.kill(cached_pid,0)\nUnboundLocalError: local variable 'cached_pid' referenced before assignment\n",
+            "description": "Small File Transfer Test."
+        },
+        {
+            "output": {
+                "cached_console": "cc -Wall --std=gnu99 -g3 -Wno-format-security -Werror -fsanitize=address -fno-omit-frame-pointer   -c -o bvtcache.o bvtcache.c\ncc -Wall --std=gnu99 -g3 -Wno-format-security -Werror -fsanitize=address -fno-omit-frame-pointer   -c -o simplecached.o simplecached.c\nsimplecached.c: In function 'main':\nsimplecached.c:185:74: error: cast to pointer from integer of different size [-Werror=int-to-pointer-cast]\n     rc = pthread_create(&worker_threads[i], NULL, assign_worker_to_task, (void*)i);\n                                                                          ^\ncc1: all warnings being treated as errors\n<builtin>: recipe for target 'simplecached.o' failed\nmake: *** [simplecached.o] Error 1\n",
+                "passfail": "failed",
+                "cached_returncode": 2
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_iktpjmvh/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 47, in test_cached_compiles\n    self.assertEqual(p.returncode, 0, \"Your cached code did not compile cleanly.\")\nAssertionError: Your cached code did not compile cleanly.\n",
+            "description": "Cache Compilation Test"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_iktpjmvh/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 702, in test_cached_large_segment\n    self.go()\n  File \"run.py\", line 353, in go\n    self.assertTrue(self.check_for_app(cached_args[0]), \"cached server does not exist, cannot run test\")\nAssertionError: cached server does not exist, cannot run test\n",
+            "description": "Test Cache supporting large segments"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_iktpjmvh/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 669, in test_cached_multithreaded\n    self.go()\n  File \"run.py\", line 353, in go\n    self.assertTrue(self.check_for_app(cached_args[0]), \"cached server does not exist, cannot run test\")\nAssertionError: cached server does not exist, cannot run test\n",
+            "description": "Multi-threaded Cache test with simultaneous multi-threaded downloads (mixed file sizes)"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_iktpjmvh/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 629, in test_cached_one_at_a_time\n    self.go()\n  File \"run.py\", line 353, in go\n    self.assertTrue(self.check_for_app(cached_args[0]), \"cached server does not exist, cannot run test\")\nAssertionError: cached server does not exist, cannot run test\n",
+            "description": "Cache Test with single threaded downloads"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_iktpjmvh/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 638, in test_cached_simul_clients\n    self.go()\n  File \"run.py\", line 353, in go\n    self.assertTrue(self.check_for_app(cached_args[0]), \"cached server does not exist, cannot run test\")\nAssertionError: cached server does not exist, cannot run test\n",
+            "description": "Cache Test with simultaneous multi-threaded downloads (mixed file sizes)"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_iktpjmvh/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 650, in test_cached_simul_clients_small\n    self.go()\n  File \"run.py\", line 353, in go\n    self.assertTrue(self.check_for_app(cached_args[0]), \"cached server does not exist, cannot run test\")\nAssertionError: cached server does not exist, cannot run test\n",
+            "description": "Cache Test with simultaneous multi-threaded downloads (small file sizes)"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_iktpjmvh/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 617, in test_concurrent_download_of_same_file\n    self.go()\n  File \"run.py\", line 353, in go\n    self.assertTrue(self.check_for_app(cached_args[0]), \"cached server does not exist, cannot run test\")\nAssertionError: cached server does not exist, cannot run test\n",
+            "description": "Concurrent Download of Same File Test"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_iktpjmvh/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 595, in test_large_file_transfer\n    self.go()\n  File \"run.py\", line 353, in go\n    self.assertTrue(self.check_for_app(cached_args[0]), \"cached server does not exist, cannot run test\")\nAssertionError: cached server does not exist, cannot run test\n",
+            "description": "Large File Transfer Test"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_iktpjmvh/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 682, in test_measure_mt_performance\n    self.go()\n  File \"run.py\", line 353, in go\n    self.assertTrue(self.check_for_app(cached_args[0]), \"cached server does not exist, cannot run test\")\nAssertionError: cached server does not exist, cannot run test\n",
+            "description": "Test Cache for multi-threading efficacy (or is it faster with more threads?)"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_iktpjmvh/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 606, in test_nonexistent_file_transfer\n    self.go()\n  File \"run.py\", line 353, in go\n    self.assertTrue(self.check_for_app(cached_args[0]), \"cached server does not exist, cannot run test\")\nAssertionError: cached server does not exist, cannot run test\n",
+            "description": "Non-Existent File Transfer Test"
+        },
+        {
+            "output": {
+                "client_returncode": -1,
+                "proxy_returncode": -1,
+                "passfail": "failed",
+                "cached_returncode": -1
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_iktpjmvh/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 585, in test_small_file_transfer\n    self.go()\n  File \"run.py\", line 353, in go\n    self.assertTrue(self.check_for_app(cached_args[0]), \"cached server does not exist, cannot run test\")\nAssertionError: cached server does not exist, cannot run test\n",
+            "description": "Small File Transfer Test."
+        },
+        {
+            "output": {
+                "proxy_returncode": 0,
+                "proxy_console": "",
+                "passfail": "passed"
+            },
+            "traceback": "",
+            "description": "Proxy Compilation Test"
+        }
+    ]
+}

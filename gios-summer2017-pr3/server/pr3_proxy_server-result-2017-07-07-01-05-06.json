@@ -1,0 +1,117 @@
+{
+    "tests": [
+        {
+            "output": {
+                "proxy_returncode": null,
+                "server_returncode": 0,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": 0,
+                "server_console": "127.0.0.1 - - [07/Jul/2017 01:03:47] code 404, message Not Found\n127.0.0.1 - - [07/Jul/2017 01:03:47] \"GET /not-there1 HTTP/1.1\" 404 -\n127.0.0.1 - - [07/Jul/2017 01:03:47] code 404, message Not Found\n127.0.0.1 - - [07/Jul/2017 01:03:47] \"GET /not-there0 HTTP/1.1\" 404 -\n",
+                "proxy_console": "*   Trying 127.0.0.1...\n* Connected to localhost (127.0.0.1) port 8195 (#0)\n> GET /not-there1 HTTP/1.1\r\nHost: localhost:8195\r\nAccept: */*\r\n\r\n< HTTP/1.1 404 Not Found\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:47 GMT\r\n< Connection: close\r\n< Content-Type: text/html\r\n< \r\n* Closing connection 0\n*   Trying 127.0.0.1...\n* Connected to localhost (127.0.0.1) port 8195 (#0)\n> GET /not-there0 HTTP/1.1\r\nHost: localhost:8195\r\nAccept: */*\r\n\r\n< HTTP/1.1 404 Not Found\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:47 GMT\r\n< Connection: close\r\n< Content-Type: text/html\r\n< \r\n* Closing connection 0\n"
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_zxnhwoid/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 318, in test_nonexistent_files\n    self.go(num_client_threads, num_proxy_threads, delay, num_requests, workload_file, answer_log)\n  File \"run.py\", line 266, in go\n    self.assertFalse(recv_failed, \"At least one of the requests was not fulfilled or it received an incorrect status. {}\".format(recv_failed_list))\nAssertionError: At least one of the requests was not fulfilled or it received an incorrect status. [' /notthere.png', ' /notthere.png']\n",
+            "description": "Tests that the server properly handles requests for non-existent files"
+        },
+        {
+            "output": {
+                "proxy_returncode": null,
+                "server_returncode": 0,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": 0,
+                "server_console": "127.0.0.1 - - [07/Jul/2017 01:03:51] \"GET /10mb-sample-file-1.txt HTTP/1.1\" 200 -\nTraceback (most recent call last):\n  File \"/usr/lib/python2.7/SocketServer.py\", line 596, in process_request_thread\n    self.finish_request(request, client_address)\n  File \"/usr/lib/python2.7/SocketServer.py\", line 331, in finish_request\n    self.RequestHandlerClass(request, client_address, self)\n  File \"/usr/lib/python2.7/SocketServer.py\", line 654, in __init__\n    self.finish()\n  File \"/usr/lib/python2.7/SocketServer.py\", line 713, in finish\n    self.wfile.close()\n  File \"/usr/lib/python2.7/socket.py\", line 283, in close\n    self.flush()\n  File \"/usr/lib/python2.7/socket.py\", line 307, in flush\n    self._sock.sendall(view[write_offset:write_offset+buffer_size])\nerror: [Errno 32] Broken pipe\n",
+                "proxy_console": "*   Trying 127.0.0.1...\n* Connected to localhost (127.0.0.1) port 8428 (#0)\n> GET /10mb-sample-file-1.txt HTTP/1.1\r\nHost: localhost:8428\r\nAccept: */*\r\n\r\n< HTTP/1.1 200 OK\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:51 GMT\r\n< Content-Length: 10485760\r\n< \r\n_gf_send: Broken pipe\ngfs_send failed\n* Failed writing body (18446744073709551615 != 4096)\n* Closing connection 0\n\nlibcurl: (23) Failed writing body (18446744073709551615 != 4096)\n_gf_send: Broken pipe\n_gf_send: Broken pipe\n"
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_zxnhwoid/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 305, in test_ok_with_long_message\n    self.go(num_client_threads, num_proxy_threads, delay, num_requests, workload_file, answer_log)\n  File \"run.py\", line 267, in go\n    self.assertFalse(incorrect_contents, \"The contents of at least one of the files was not correct. {}\".format(incorrect_contents_list))\nAssertionError: The contents of at least one of the files was not correct. [' /10mb-sample-file-0.mpg']\n",
+            "description": "Tests that the server properly sends an OK response and a long message."
+        },
+        {
+            "output": {
+                "proxy_returncode": null,
+                "server_returncode": 0,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": 0,
+                "server_console": "127.0.0.1 - - [07/Jul/2017 01:03:55] \"GET /1kb-sample-file-1.html HTTP/1.1\" 200 -\n127.0.0.1 - - [07/Jul/2017 01:03:55] \"GET /1kb-sample-file-2.png HTTP/1.1\" 200 -\n127.0.0.1 - - [07/Jul/2017 01:03:55] \"GET /1kb-sample-file-3.jpg HTTP/1.1\" 200 -\n127.0.0.1 - - [07/Jul/2017 01:03:55] \"GET /1kb-sample-file-4.png HTTP/1.1\" 200 -\n127.0.0.1 - - [07/Jul/2017 01:03:55] \"GET /1kb-sample-file-0.png HTTP/1.1\" 200 -\n127.0.0.1 - - [07/Jul/2017 01:03:55] \"GET /1kb-sample-file-1.html HTTP/1.1\" 200 -\n",
+                "proxy_console": "*   Trying 127.0.0.1...\n* Connected to localhost (127.0.0.1) port 8487 (#0)\n> GET /1kb-sample-file-1.html HTTP/1.1\r\nHost: localhost:8487\r\nAccept: */*\r\n\r\n< HTTP/1.1 200 OK\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:55 GMT\r\n< Content-Length: 1034\r\n< \r\n* Connection #0 to host localhost left intact\n*   Trying 127.0.0.1...\n* Connected to localhost (127.0.0.1) port 8487 (#0)\n> GET /1kb-sample-file-2.png HTTP/1.1\r\nHost: localhost:8487\r\nAccept: */*\r\n\r\n< HTTP/1.1 200 OK\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:55 GMT\r\n< Content-Length: 1073\r\n< \r\n* Connection #0 to host localhost left intact\n*   Trying 127.0.0.1...\n* Connected to localhost (127.0.0.1) port 8487 (#0)\n> GET /1kb-sample-file-3.jpg HTTP/1.1\r\nHost: localhost:8487\r\nAccept: */*\r\n\r\n< HTTP/1.1 200 OK\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:55 GMT\r\n< Content-Length: 1295\r\n< \r\n* Connection #0 to host localhost left intact\n*   Trying 127.0.0.1...\n* Connected to localhost (127.0.0.1) port 8487 (#0)\n> GET /1kb-sample-file-4.png HTTP/1.1\r\nHost: localhost:8487\r\nAccept: */*\r\n\r\n< HTTP/1.1 200 OK\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:55 GMT\r\n< Content-Length: 1273\r\n< \r\n* Connection #0 to host localhost left intact\n*   Trying 127.0.0.1...\n* Connected to localhost (127.0.0.1) port 8487 (#0)\n> GET /1kb-sample-file-0.png HTTP/1.1\r\nHost: localhost:8487\r\nAccept: */*\r\n\r\n< HTTP/1.1 200 OK\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:55 GMT\r\n< Content-Length: 1270\r\n< \r\n* Connection #0 to host localhost left intact\n*   Trying 127.0.0.1...\n* Connected to localhost (127.0.0.1) port 8487 (#0)\n> GET /1kb-sample-file-1.html HTTP/1.1\r\nHost: localhost:8487\r\nAccept: */*\r\n\r\n< HTTP/1.1 200 OK\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:55 GMT\r\n< Content-Length: 1034\r\n< \r\n* Connection #0 to host localhost left intact\n"
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_zxnhwoid/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 292, in test_ok_with_short_message\n    self.go(num_client_threads, num_proxy_threads, delay, num_requests, workload_file, answer_log)\n  File \"run.py\", line 267, in go\n    self.assertFalse(incorrect_contents, \"The contents of at least one of the files was not correct. {}\".format(incorrect_contents_list))\nAssertionError: The contents of at least one of the files was not correct. [' /1kb-sample-file-0.png', ' /1kb-sample-file-1.html', ' /1kb-sample-file-1.html', ' /1kb-sample-file-2.png', ' /1kb-sample-file-3.jpg', ' /1kb-sample-file-4.png']\n",
+            "description": "Tests that the server properly sends an OK response and a short message."
+        },
+        {
+            "output": {
+                "proxy_returncode": null,
+                "server_returncode": 0,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": 0,
+                "server_console": "Log Tail:\nGET /yellowstone.jpg HTTP/1.1\" 200 -\nTraceback (most recent call last):\n  File \"/usr/lib/python2.7/SocketServer.py\", line 596, in process_request_thread\n    self.finish_request(request, client_address)\n  File \"/usr/lib/python2.7/SocketServer.py\", line 331, in finish_request\n    self.RequestHandlerClass(request, client_address, self)\n  File \"/usr/lib/python2.7/SocketServer.py\", line 654, in __init__\n    self.finish()\n  File \"/usr/lib/python2.7/SocketServer.py\", line 713, in finish\n    self.wfile.close()\n  File \"/usr/lib/python2.7/socket.py\", line 283, in close\n    self.flush()\n  File \"/usr/lib/python2.7/socket.py\", line 307, in flush\n    self._sock.sendall(view[write_offset:write_offset+buffer_size])\nerror: [Errno 32] Broken pipe\n127.0.0.1 - - [07/Jul/2017 01:03:59] \"GET /paraglider.jpg HTTP/1.1\" 200 -\nTraceback (most recent call last):\n  File \"/usr/lib/python2.7/SocketServer.py\", line 596, in process_request_thread\n    self.finish_request(request, client_address)\n  File \"/usr/lib/python2.7/SocketServer.py\", line 331, in finish_request\n    self.RequestHandlerClass(request, client_address, self)\n  File \"/usr/lib/python2.7/SocketServer.py\", line 654, in __init__\n    self.finish()\n  File \"/usr/lib/python2.7/SocketServer.py\", line 713, in finish\n    self.wfile.close()\n  File \"/usr/lib/python2.7/socket.py\", line 283, in close\n    self.flush()\n  File \"/usr/lib/python2.7/socket.py\", line 307, in flush\n    self._sock.sendall(view[write_offset:write_offset+buffer_size])\nerror: [Errno 32] Broken pipe\n",
+                "proxy_console": "Log Tail:\noad.jpg HTTP/1.1\r\nHost: localhost:8267\r\nAccept: */*\r\n\r\n< HTTP/1.1 200 OK\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:59 GMT\r\n< Content-Length: 233174\r\n< \r\n*   Trying 127.0.0.1...\n* Connected to localhost (127.0.0.1) port 8267 (#0)\n> GET /yellowstone.jpg HTTP/1.1\r\nHost: localhost:8267\r\nAccept: */*\r\n\r\ngfs_send failed\n* Failed writing body (18446744073709551615 != 4096)\n* Closing connection 0\n\nlibcurl: (23) Failed writing body (18446744073709551615 != 4096)\n< HTTP/1.1 404 Not Found\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:59 GMT\r\n< Connection: close\r\n< Content-Type: text/html\r\n< \r\n* Closing connection 0\n< HTTP/1.1 200 OK\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:59 GMT\r\n< Content-Length: 138177\r\n< \r\ngfs_send failed\n* Failed writing body (18446744073709551615 != 4096)\n* Closing connection 0\n\nlibcurl: (23) Failed writing body (18446744073709551615 != 4096)\n< HTTP/1.1 200 OK\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:59 GMT\r\n< Content-Length: 104244\r\n< \r\ngfs_send failed\n* Failed writing body (18446744073709551615 != 4096)\n* Closing connection 0\n\nlibcurl: (23) Failed writing body (18446744073709551615 != 4096)\n< HTTP/1.1 200 OK\r\n< Server: BaseHTTP/0.3 Python/2.7.12\r\n< Date: Fri, 07 Jul 2017 01:03:59 GMT\r\n< Content-Length: 233174\r\n< \r\ngfs_send failed\n* Failed writing body (18446744073709551615 != 4096)\n* Closing connection 0\n\nlibcurl: (23) Failed writing body (18446744073709551615 != 4096)\n"
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_zxnhwoid/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 381, in test_proxy_high_stress\n    self.go(num_client_threads, num_proxy_threads, delay, num_requests, workload_file, answer_log)\n  File \"run.py\", line 266, in go\n    self.assertFalse(recv_failed, \"At least one of the requests was not fulfilled or it received an incorrect status. {}\".format(recv_failed_list))\nAssertionError: At least one of the requests was not fulfilled or it received an incorrect status. [' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png']\n",
+            "description": "Test with 3:1 ratio client threads to proxy threads"
+        },
+        {
+            "output": {
+                "proxy_returncode": null,
+                "server_returncode": 0,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": 0,
+                "server_console": "",
+                "proxy_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_zxnhwoid/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 355, in test_proxy_multithreaded\n    self.go(num_client_threads, num_proxy_threads, delay, num_requests, workload_file, answer_log)\n  File \"run.py\", line 266, in go\n    self.assertFalse(recv_failed, \"At least one of the requests was not fulfilled or it received an incorrect status. {}\".format(recv_failed_list))\nAssertionError: At least one of the requests was not fulfilled or it received an incorrect status. [' /notthere.png']\n",
+            "description": "Test with equal number of client and proxy threads"
+        },
+        {
+            "output": {
+                "proxy_returncode": null,
+                "server_returncode": 0,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": 0,
+                "server_console": "",
+                "proxy_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_zxnhwoid/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 280, in test_proxy_one_at_a_time\n    self.go(num_client_threads, num_proxy_threads, delay, num_requests, workload_file, answer_log)\n  File \"run.py\", line 266, in go\n    self.assertFalse(recv_failed, \"At least one of the requests was not fulfilled or it received an incorrect status. {}\".format(recv_failed_list))\nAssertionError: At least one of the requests was not fulfilled or it received an incorrect status. [' /notthere.png']\n",
+            "description": "Tests the proxy behaves as expected when one request is made at a time."
+        },
+        {
+            "output": {
+                "proxy_returncode": null,
+                "server_returncode": 0,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": 0,
+                "server_console": "",
+                "proxy_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_zxnhwoid/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 343, in test_proxy_simul_clients\n    self.go(num_client_threads, num_proxy_threads, delay, num_requests, workload_file, answer_log)\n  File \"run.py\", line 266, in go\n    self.assertFalse(recv_failed, \"At least one of the requests was not fulfilled or it received an incorrect status. {}\".format(recv_failed_list))\nAssertionError: At least one of the requests was not fulfilled or it received an incorrect status. [' /notthere.png']\n",
+            "description": "Tests the proxy behaves as expected when multiple requests are made simultaneously."
+        },
+        {
+            "output": {
+                "proxy_returncode": null,
+                "server_returncode": 0,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": 0,
+                "server_console": "",
+                "proxy_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_zxnhwoid/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 369, in test_proxy_stress\n    self.go(num_client_threads, num_proxy_threads, delay, num_requests, workload_file, answer_log)\n  File \"run.py\", line 266, in go\n    self.assertFalse(recv_failed, \"At least one of the requests was not fulfilled or it received an incorrect status. {}\".format(recv_failed_list))\nAssertionError: At least one of the requests was not fulfilled or it received an incorrect status. [' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png', ' /notthere.png']\n",
+            "description": "Test with 2:1 ratio client threads to proxy threads"
+        },
+        {
+            "output": {
+                "proxy_returncode": 0,
+                "proxy_console": "cc -Wall --std=gnu99 -g3 -Wno-format-security -Werror -fsanitize=address -fno-omit-frame-pointer   -c -o webproxy.o webproxy.c\ncc -Wall --std=gnu99 -g3 -Wno-format-security -Werror -fsanitize=address -fno-omit-frame-pointer   -c -o steque.o steque.c\ncc -Wall --std=gnu99 -g3 -Wno-format-security -Werror -fsanitize=address -fno-omit-frame-pointer   -c -o gfserver.o gfserver.c\ncc -Wall --std=gnu99 -g3 -Wno-format-security -Werror -fsanitize=address -fno-omit-frame-pointer   -c -o handle_with_curl.o handle_with_curl.c\ncc -o webproxy -Wall --std=gnu99 -g3 -Wno-format-security -Werror -fsanitize=address -fno-omit-frame-pointer  webproxy.o steque.o gfserver.o handle_with_curl.o -lpthread -L/usr/lib/x86_64-linux-gnu -lcurl\n",
+                "passfail": "passed"
+            },
+            "traceback": "",
+            "description": "Proxy Compilation Test"
+        }
+    ]
+}

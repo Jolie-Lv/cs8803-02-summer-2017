@@ -1,0 +1,152 @@
+{
+    "tests": [
+        {
+            "output": {
+                "proxy_returncode": 226,
+                "cached_returncode": null,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": null,
+                "proxy_console": "Error connecting to segment for segid: 0\n",
+                "cached_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_xmlzaoth/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 702, in test_cached_large_segment\n    self.go()\n  File \"run.py\", line 461, in go\n    self.assertIsNone(self.p_proxy.poll(), \"The proxy terminated during testing {}\".format(exec_info))\nAssertionError: The proxy terminated during testing {'client workload file': '/1047589 1047589\\n/1048576 1048576\\n/1049563 1049563\\n/5241893 5241893\\n/5242880 5242880\\n/5243867 5243867\\n', 'cache': ['./bvtcached', '-c', 'workload-big.txt', '-t', '2'], 'proxy': ['./webproxy', '-s', 'localhost:8000', '-t', '2', '-z', '65536', '-n', '2', '-p', '8500'], 'cache workload file': '/1047589 1047589\\n/1048576 1048576\\n/1049563 1049563\\n/5241893 5241893\\n/5242880 5242880\\n/5243867 5243867\\n', 'client': ['./bvtclient', '-w', 'workload-big.txt', '-t', '2', '-r', '16', '-p', '8500']}\n",
+            "description": "Test Cache supporting large segments"
+        },
+        {
+            "output": {
+                "proxy_returncode": 226,
+                "cached_returncode": null,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": -1,
+                "proxy_console": "Error connecting to segment for segid: 0\n",
+                "cached_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_xmlzaoth/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 669, in test_cached_multithreaded\n    self.go()\n  File \"run.py\", line 422, in go\n    self.assertIsNone(self.p_proxy.poll(), \"The proxy terminated before we could start testing\")\nAssertionError: The proxy terminated before we could start testing\n",
+            "description": "Multi-threaded Cache test with simultaneous multi-threaded downloads (mixed file sizes)"
+        },
+        {
+            "output": {
+                "proxy_returncode": 226,
+                "cached_returncode": null,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": -1,
+                "proxy_console": "Error connecting to segment for segid: 0\n",
+                "cached_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_xmlzaoth/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 629, in test_cached_one_at_a_time\n    self.go()\n  File \"run.py\", line 422, in go\n    self.assertIsNone(self.p_proxy.poll(), \"The proxy terminated before we could start testing\")\nAssertionError: The proxy terminated before we could start testing\n",
+            "description": "Cache Test with single threaded downloads"
+        },
+        {
+            "output": {
+                "proxy_returncode": 226,
+                "cached_returncode": null,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": null,
+                "proxy_console": "Error connecting to segment for segid: 0\n",
+                "cached_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_xmlzaoth/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 638, in test_cached_simul_clients\n    self.go()\n  File \"run.py\", line 461, in go\n    self.assertIsNone(self.p_proxy.poll(), \"The proxy terminated during testing {}\".format(exec_info))\nAssertionError: The proxy terminated during testing {'client workload file': '/1kb-sample-file-0.png 1270\\n/1kb-sample-file-1.html 1034\\n/1kb-sample-file-2.png 1073\\n/1kb-sample-file-3.jpg 1295\\n/1kb-sample-file-4.png 1273\\n/notthere.png 1024\\n/paraglider.jpg 233174\\n/road.jpg 138177\\n/yellowstone.jpg 104244\\n/moranabovejacksonlake.jpg 452231\\n', 'cache': ['./bvtcached', '-c', 'workloadai-cache.txt', '-t', '1'], 'proxy': ['./webproxy', '-s', 'localhost:8000', '-t', '10', '-z', '4096', '-n', '1', '-p', '8500'], 'cache workload file': '/1kb-sample-file-0.png 1270\\n/1kb-sample-file-1.html 1034\\n/1kb-sample-file-2.png 1073\\n/1kb-sample-file-3.jpg 1295\\n/1kb-sample-file-4.png 1273\\n/paraglider.jpg 233174\\n/road.jpg 138177\\n/yellowstone.jpg 104244\\n/moranabovejacksonlake.jpg 452231\\n', 'client': ['./bvtclient', '-w', 'workloadai.txt', '-t', '10', '-r', '10', '-p', '8500']}\n",
+            "description": "Cache Test with simultaneous multi-threaded downloads (mixed file sizes)"
+        },
+        {
+            "output": {
+                "proxy_returncode": 226,
+                "cached_returncode": null,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": null,
+                "proxy_console": "Error connecting to segment for segid: 0\n",
+                "cached_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_xmlzaoth/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 650, in test_cached_simul_clients_small\n    self.go()\n  File \"run.py\", line 461, in go\n    self.assertIsNone(self.p_proxy.poll(), \"The proxy terminated during testing {}\".format(exec_info))\nAssertionError: The proxy terminated during testing {'client workload file': '/412 412\\n/512 512\\n/612 612\\n/924 924\\n/1024 1024\\n/1124 1124\\n', 'cache': ['./bvtcached', '-c', 'workload-small.txt', '-t', '1'], 'proxy': ['./webproxy', '-s', 'localhost:8000', '-t', '10', '-z', '4096', '-n', '1', '-p', '8500'], 'cache workload file': '/412 412\\n/512 512\\n/612 612\\n/924 924\\n/1024 1024\\n/1124 1124\\n', 'client': ['./bvtclient', '-w', 'workload-small.txt', '-t', '10', '-r', '10', '-p', '8500']}\n",
+            "description": "Cache Test with simultaneous multi-threaded downloads (small file sizes)"
+        },
+        {
+            "output": {
+                "proxy_returncode": 226,
+                "cached_returncode": null,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": null,
+                "proxy_console": "Error connecting to segment for segid: 0\n",
+                "cached_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_xmlzaoth/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 617, in test_concurrent_download_of_same_file\n    self.go()\n  File \"run.py\", line 461, in go\n    self.assertIsNone(self.p_proxy.poll(), \"The proxy terminated during testing {}\".format(exec_info))\nAssertionError: The proxy terminated during testing {'client workload file': '/1kb-sample-file-0.png 1270\\n/1kb-sample-file-1.html 1034\\n/1kb-sample-file-2.png 1073\\n/1kb-sample-file-3.jpg 1295\\n/1kb-sample-file-4.png 1273\\n/notthere.png 1024\\n/paraglider.jpg 233174\\n/road.jpg 138177\\n/yellowstone.jpg 104244\\n/moranabovejacksonlake.jpg 452231\\n', 'cache': ['./bvtcached', '-c', 'workloadai-cache.txt', '-t', '2'], 'proxy': ['./webproxy', '-s', 'localhost:8000', '-t', '2', '-z', '4096', '-n', '10', '-p', '8500'], 'cache workload file': '/1kb-sample-file-0.png 1270\\n/1kb-sample-file-1.html 1034\\n/1kb-sample-file-2.png 1073\\n/1kb-sample-file-3.jpg 1295\\n/1kb-sample-file-4.png 1273\\n/paraglider.jpg 233174\\n/road.jpg 138177\\n/yellowstone.jpg 104244\\n/moranabovejacksonlake.jpg 452231\\n', 'client': ['./bvtclient', '-w', 'workloadai.txt', '-t', '2', '-r', '10', '-p', '8500']}\n",
+            "description": "Concurrent Download of Same File Test"
+        },
+        {
+            "output": {
+                "proxy_returncode": 226,
+                "cached_returncode": null,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": null,
+                "proxy_console": "Error connecting to segment for segid: 0\n",
+                "cached_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_xmlzaoth/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 595, in test_large_file_transfer\n    self.go()\n  File \"run.py\", line 461, in go\n    self.assertIsNone(self.p_proxy.poll(), \"The proxy terminated during testing {}\".format(exec_info))\nAssertionError: The proxy terminated during testing {'client workload file': '/1047589 1047589\\n/1048576 1048576\\n/1049563 1049563\\n/5241893 5241893\\n/5242880 5242880\\n/5243867 5243867\\n', 'cache': ['./bvtcached', '-c', 'workload-big.txt', '-t', '1'], 'proxy': ['./webproxy', '-s', 'localhost:8000', '-t', '1', '-z', '4096', '-n', '1', '-p', '8500'], 'cache workload file': '/1047589 1047589\\n/1048576 1048576\\n/1049563 1049563\\n/5241893 5241893\\n/5242880 5242880\\n/5243867 5243867\\n', 'client': ['./bvtclient', '-w', 'workload-big.txt', '-t', '1', '-r', '10', '-p', '8500']}\n",
+            "description": "Large File Transfer Test"
+        },
+        {
+            "output": {
+                "proxy_returncode": 226,
+                "cached_returncode": null,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": null,
+                "proxy_console": "Error connecting to segment for segid: 0\n",
+                "cached_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_xmlzaoth/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 682, in test_measure_mt_performance\n    self.go()\n  File \"run.py\", line 461, in go\n    self.assertIsNone(self.p_proxy.poll(), \"The proxy terminated during testing {}\".format(exec_info))\nAssertionError: The proxy terminated during testing {'client workload file': '/1kb-sample-file-0.png 1270\\n/1kb-sample-file-1.html 1034\\n/1kb-sample-file-2.png 1073\\n/1kb-sample-file-3.jpg 1295\\n/1kb-sample-file-4.png 1273\\n/notthere.png 1024\\n/paraglider.jpg 233174\\n/road.jpg 138177\\n/yellowstone.jpg 104244\\n/moranabovejacksonlake.jpg 452231\\n', 'cache': ['./bvtcached_slow', '-c', 'workloadai-cache.txt', '-t', '8'], 'proxy': ['./webproxy', '-s', 'localhost:8000', '-t', '8', '-z', '4096', '-n', '8', '-p', '8500'], 'cache workload file': '/1kb-sample-file-0.png 1270\\n/1kb-sample-file-1.html 1034\\n/1kb-sample-file-2.png 1073\\n/1kb-sample-file-3.jpg 1295\\n/1kb-sample-file-4.png 1273\\n/paraglider.jpg 233174\\n/road.jpg 138177\\n/yellowstone.jpg 104244\\n/moranabovejacksonlake.jpg 452231\\n', 'client': ['./bvtclient', '-w', 'workloadai.txt', '-t', '8', '-r', '10', '-p', '8500']}\n",
+            "description": "Test Cache for multi-threading efficacy (or is it faster with more threads?)"
+        },
+        {
+            "output": {
+                "proxy_returncode": 226,
+                "cached_returncode": null,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": null,
+                "proxy_console": "Error connecting to segment for segid: 0\n",
+                "cached_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_xmlzaoth/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 606, in test_nonexistent_file_transfer\n    self.go()\n  File \"run.py\", line 461, in go\n    self.assertIsNone(self.p_proxy.poll(), \"The proxy terminated during testing {}\".format(exec_info))\nAssertionError: The proxy terminated during testing {'client workload file': '/not-there0 0\\n/not-there1 0\\n/not-there2.html 0\\n/not-there3.pdf 0\\n/not-there4.jpg 0\\n/not-there5.png 0\\n', 'cache': ['./bvtcached', '-c', 'workloadai-cache.txt', '-t', '1'], 'proxy': ['./webproxy', '-s', 'localhost:8000', '-t', '1', '-z', '4096', '-n', '1', '-p', '8500'], 'cache workload file': '/1kb-sample-file-0.png 1270\\n/1kb-sample-file-1.html 1034\\n/1kb-sample-file-2.png 1073\\n/1kb-sample-file-3.jpg 1295\\n/1kb-sample-file-4.png 1273\\n/paraglider.jpg 233174\\n/road.jpg 138177\\n/yellowstone.jpg 104244\\n/moranabovejacksonlake.jpg 452231\\n', 'client': ['./bvtclient', '-w', 'workload-client-ne.txt', '-t', '1', '-r', '10', '-p', '8500']}\n",
+            "description": "Non-Existent File Transfer Test"
+        },
+        {
+            "output": {
+                "proxy_returncode": 226,
+                "cached_returncode": null,
+                "client_console": "",
+                "passfail": "failed",
+                "client_returncode": -1,
+                "proxy_console": "Error connecting to segment for segid: 0\n",
+                "cached_console": ""
+            },
+            "traceback": "Traceback (most recent call last):\n  File \"/home/vmuser_xmlzaoth/gios.py\", line 246, in func_wrapper\n    ans = func(self)\n  File \"run.py\", line 585, in test_small_file_transfer\n    self.go()\n  File \"run.py\", line 422, in go\n    self.assertIsNone(self.p_proxy.poll(), \"The proxy terminated before we could start testing\")\nAssertionError: The proxy terminated before we could start testing\n",
+            "description": "Small File Transfer Test."
+        },
+        {
+            "output": {
+                "cached_console": "",
+                "passfail": "passed",
+                "cached_returncode": 0
+            },
+            "traceback": "",
+            "description": "Cache Compilation Test"
+        },
+        {
+            "output": {
+                "proxy_returncode": 0,
+                "proxy_console": "",
+                "passfail": "passed"
+            },
+            "traceback": "",
+            "description": "Proxy Compilation Test"
+        }
+    ]
+}
